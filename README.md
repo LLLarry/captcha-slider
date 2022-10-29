@@ -1,6 +1,11 @@
 # 滑块验证码
 
 滑块验证码是人类行为校验的一种，在当前需要登录的场景使用是相当频繁的。
+## 演示示例
+
+[演示地址](http://121.5.230.70:8080/captcha-slider/)
+
+![20221029_181937](images/20221029_181937.gif)
 
 ## 特色功能：
 
@@ -23,7 +28,7 @@ npm install captcha-slider --save
 import CaptchaSlider from 'captcha-slider'
 
 ```
-> 提示： 也支持`<script src="sliderCaptcha.iife.js"></script>` 的方式引入
+> 提示： 也支持`<script src="captchaSlider.iife.js"></script>` 的方式引入
 
 
 ### 用法
@@ -33,14 +38,14 @@ import CaptchaSlider from 'captcha-slider'
 > 注意： 容器需要设置宽度，容器的宽度作为**滑块验证码**的宽度
 
 ```html
-<div class="slider-captcha" style="width: 360px;"></div>
+<div class="captcha-slider" style="width: 360px;"></div>
 ```
 
 ### 创建控件
 
 ```js
-new SliderCaptcha({
-    el: '.slider-captcha'，
+new CaptchaSlider({
+    el: '.slider-captcha',
     onSuccess () {
         console.log('成功')
     },
@@ -78,6 +83,4 @@ new SliderCaptcha({
 | `reset`         | 无     | `captcha.reset()`         | 重置控件               |
 | `loadNextImage` | 无     | `captcha.loadNextImage()` | 使用下一个图片绘制控件 |
 | `destory`       | 无     | `captcha.destory()`       | 销毁控件               |
-
-## 演示示例
 

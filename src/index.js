@@ -1,7 +1,7 @@
-import CaptchaSlider from './js/captchaSlider.js'
+import CaptchaSliderBar from './js/captchaSliderBar.js'
 import CaptchaCavans from './js/captchaCavans.js'
 
-class SliderCaptcha {
+class CaptchaSlider {
 	/**
 	 * el 容器 String、Element (必传)
 	 * vailadeValue: Number 验证容错偏差值 默认5个像素偏差即认为验证通过
@@ -36,7 +36,7 @@ class SliderCaptcha {
 			slideSizeRate: this.options.slideSizeRate
 		})
 
-		this.captchaSlider = new CaptchaSlider({
+		this.captchaSliderBar = new CaptchaSliderBar({
 			el: this.options.el,
 			onStart: this.options.onStart,
 			onEnd: this.options.onEnd,
@@ -47,11 +47,11 @@ class SliderCaptcha {
 			finish: (rate) => {
 				const result = this.captchaCavans.valide()
 				if (result) {
-					this.captchaSlider.valideSuccess()
+					this.captchaSliderBar.valideSuccess()
 					this.options.onSuccess(rate)
 				
 				} else {
-					this.captchaSlider.validefail()
+					this.captchaSliderBar.validefail()
 					this.options.onFail(rate)
 					setTimeout(() => {
 						// 加载下一个图片
@@ -78,9 +78,9 @@ class SliderCaptcha {
 
 	// 销毁
 	destory () {
-		if (this.captchaSlider) {
-			this.captchaSlider.destory()
-			this.captchaSlider = null
+		if (this.captchaSliderBar) {
+			this.captchaSliderBar.destory()
+			this.captchaSliderBar = null
 		}
 		
 
@@ -97,7 +97,7 @@ class SliderCaptcha {
 		this.captchaCavans.setNextImageIndex()
 		// 绘制图片
 		this.captchaCavans.loadImage()
-		this.captchaSlider.reset()
+		this.captchaSliderBar.reset()
 	}
 
 	_valideOptions (options) {
@@ -118,4 +118,4 @@ class SliderCaptcha {
 	}
 }
 
-export default SliderCaptcha
+export default CaptchaSlider

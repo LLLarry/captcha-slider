@@ -7,19 +7,19 @@ export default {
   input: 'src/index.js',
   output: [
     {
-      file: 'dist/sliderCaptcha.cjs.js',
+      file: 'dist/captchaSlider.cjs.js',
       format: 'cjs',
       // compact: true
     },
     {
-      file: 'dist/sliderCaptcha.es.js',
+      file: 'dist/captchaSlider.es.js',
       format: 'es',
        // compact: true
     },
     {
-      file: 'dist/sliderCaptcha.iife.js',
+      file: 'dist/captchaSlider.iife.js',
       format: 'iife',
-      name: 'SliderCaptcha',
+      name: 'CaptchaSlider',
       // compact: true
     }
   ],

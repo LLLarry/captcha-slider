@@ -1,5 +1,5 @@
 
-		class CaptchaSlider {
+		class CaptchaSliderBar {
 			constructor (options) {
 				this.STATUS_IDLE = 'idle'
 				this.STATUS_PROCESS = 'proces'
@@ -23,7 +23,7 @@
 				this.rate = 0
 				this.state = this.STATUS_IDLE // 状态 idle 空闲、 proces 正在发生、 success 成功、 fail 失败
 				if (!options.el) {
-					throw TypeError(`CaptchaSlider options el param must be [String、 Element]`)
+					throw TypeError(`CaptchaSliderBar options el param must be [String、 Element]`)
 				} else {
 					if (typeof options.el === 'string') {
 						options.el = document.querySelector(options.el)
@@ -420,4 +420,4 @@
 
 		}
 
-		export default CaptchaSlider
+		export default CaptchaSliderBar
