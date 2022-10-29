@@ -49,21 +49,11 @@ class SliderCaptcha {
 				if (result) {
 					this.captchaSlider.valideSuccess()
 					this.options.onSuccess(rate)
-					// setTimeout(() => {
-					// 	this.destory()
-					// 	setTimeout(() => {
-					// 		this.captchaCavans.init()
-					// 		this.captchaSlider.init()
-
-					// 	}, this.options.vaildResultShowTime)
-					// }, this.options.vaildResultShowTime)
-
+				
 				} else {
 					this.captchaSlider.validefail()
 					this.options.onFail(rate)
 					setTimeout(() => {
-						// this.captchaCavans.loadImage()
-						// this.captchaSlider.reset()
 						// 加载下一个图片
 						this.loadNextImage()
 					}, this.options.vaildResultShowTime)

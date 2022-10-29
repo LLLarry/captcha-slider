@@ -1,18 +1,8 @@
 {
   "presets": [
-    [
-      "@babel/preset-env",
-      {
-        "modules": false,
-        "useBuiltIns": "usage",
-        "corejs": "2.6.10",
-        "targets": {
-          "ie": 10
-        }
-      }
-    ]
+    "@babel/preset-env",
   ],
-  "ignore": [
-      "node_modules/**"
-    ]
+  "plugins": [
+    
+  ]
 }

@@ -1,10 +1,10 @@
 
 		class CaptchaSlider {
-			STATUS_IDLE = 'idle'
-			STATUS_PROCESS = 'proces'
-			STATUS_SUCCESS = 'success'
-			STATUS_FAIL = 'fail'
 			constructor (options) {
+				this.STATUS_IDLE = 'idle'
+				this.STATUS_PROCESS = 'proces'
+				this.STATUS_SUCCESS = 'success'
+				this.STATUS_FAIL = 'fail'
 				// 滑块元素
 				this.slideBlock = null
 				// 滑块父元素
@@ -51,12 +51,12 @@
 					<div class="captcha_slide_moved" captcha-slider="${this.key}"></div>
 					<!-- 滑块 -->
 					<div class="captcha_slide_block" captcha-slider="${this.key}">
-						<i class="iconfont icon-youfanyeyouhua captcha_slide_block_right"></i>
-						<i class="iconfont icon-guanbicuowu captcha_slide_block_fail"></i>
+						<i class="captcha-slider-iconfont icon-youfanyeyouhua captcha_slide_block_right"></i>
+						<i class="captcha-slider-iconfont icon-guanbicuowu captcha_slide_block_fail"></i>
 					</div>
 					<div class="captcha_slide_tip" captcha-slider="${this.key}">向右滑动滑块完成验证</div>
 					<div class="captcha_slide_valide_success" captcha-slider="${this.key}">
-					<i class="iconfont icon-duihao captcha_slide_success"></i>
+					<i class="captcha-slider-iconfont icon-duihao captcha_slide_success"></i>
 					验证成功</div>
 				`
 				const wrapper = document.createElement('div')
@@ -71,6 +71,44 @@
 			createstyle () {
 					const style = document.createElement('style')
 					style.innerHTML = `
+					@font-face {
+					  font-family: "captcha-slider-iconfont"; /* Project id 3734199 */
+					  src: url('//at.alicdn.com/t/c/font_3734199_5kjacpterpd.woff2?t=1666878445141') format('woff2'),
+					       url('//at.alicdn.com/t/c/font_3734199_5kjacpterpd.woff?t=1666878445141') format('woff'),
+					       url('//at.alicdn.com/t/c/font_3734199_5kjacpterpd.ttf?t=1666878445141') format('truetype');
+					}
+
+					.captcha-slider-iconfont {
+					  font-family: "captcha-slider-iconfont" !important;
+					  font-size: 16px;
+					  font-style: normal;
+					  -webkit-font-smoothing: antialiased;
+					  -moz-osx-font-smoothing: grayscale;
+					}
+
+					.icon-shuaxin:before {
+					  content: "\\e62a";
+					}
+
+					.icon-loading:before {
+					  content: "\\e644";
+					}
+
+					.icon-duihao:before {
+					  content: "\\eaf1";
+					}
+
+					.icon-guanbicuowu:before {
+					  content: "\\e62f";
+					}
+
+					.icon-youfanyeyouhua:before {
+					  content: "\\e76e";
+					}
+
+					.icon-shuaxin1:before {
+					  content: "\\e692";
+					}
 				   .captcha_slide_wrapper {
 						width: 220px;
 						height: 38px;
@@ -177,7 +215,8 @@
 					    }
 					}
 				`	
-				document.body.appendChild(style)
+				this.style = style
+				document.head.appendChild(style)
 			}
 
 			// 绑定事件
@@ -340,6 +379,9 @@
 				// 移除元素
 				if (this.slideWrapper && this.slideWrapper.parentNode) {
 					this.slideWrapper.parentNode.removeChild(this.slideWrapper)
+				}
+				if (this.style && this.style.parentNode) {
+					this.style.parentNode.removeChild(this.style)
 				}
 			}
 

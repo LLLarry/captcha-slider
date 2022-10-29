@@ -14,15 +14,16 @@
 ### 安装
 
 ```shell	
-npm install aaa -s
+npm install captcha-slider --save
 ```
 
 ### 引入
 
 ```js
-import CP from 'xxxxx'
-```
+import CaptchaSlider from 'captcha-slider'
 
+```
+> 提示： 也支持`<script src="sliderCaptcha.iife.js"></script>` 的方式引入
 
 
 ### 用法
@@ -32,7 +33,7 @@ import CP from 'xxxxx'
 > 注意： 容器需要设置宽度，容器的宽度作为**滑块验证码**的宽度
 
 ```html
-<div class="slider-captcha" styke="width: 360px;"></div>
+<div class="slider-captcha" style="width: 360px;"></div>
 ```
 
 ### 创建控件
@@ -56,9 +57,8 @@ new SliderCaptcha({
 
 ## 配置项
 
-|                     |                   |        |      |                                                              |
-| ------------------- | ----------------- | ------ | ---- | ------------------------------------------------------------ |
 | 名称                | 类型              | 默认值 | 必传 | 说明                                                         |
+| ------------------- | ----------------- | ------ | ---- | ------------------------------------------------------------ |
 | `el`                | string \| element | 无     | 是   | 控件容器                                                     |
 | `vailadeValue`        | number            | 5      | 否   | 验证容错偏差值 默认5个像素偏差即认为验证通过                 |
 | `picList`             | string[]          |        | 否   | 图片路径地址数组                                             |
@@ -71,11 +71,13 @@ new SliderCaptcha({
 | `onChange`            | function          | 无     | 否   | 滑块滑动时的回调 (参数1： 横向移动百分比， 参数2：`mousemove`/`touchmove`事件`event`) |
 | `onEnd`               | function          | 无     | 否   | 滑块结束滑动时的回调 (参数1： 横向移动百分比， 参数2：`mouseup`/`touchend`事件`event`) |
 
-	## 方法
+## 方法
 
 | 方法名        | 返回值 | 示例                    | 描述                   |
 | ------------- | ------ | ----------------------- | ---------------------- |
 | `reset`         | 无     | `captcha.reset()`         | 重置控件               |
 | `loadNextImage` | 无     | `captcha.loadNextImage()` | 使用下一个图片绘制控件 |
 | `destory`       | 无     | `captcha.destory()`       | 销毁控件               |
+
+## 演示示例
 

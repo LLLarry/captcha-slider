@@ -85,6 +85,7 @@ class CaptchaCavans {
 		this.createElement()
 	}
 	createElement () {
+		this.createStyle()
 		const canvasWrapper = document.createElement('div')
 		canvasWrapper.setAttribute('class' , 'captcha_canvas_wrapper')
 		canvasWrapper.setAttribute('captcha-canvas', this.key)
@@ -121,8 +122,8 @@ class CaptchaCavans {
 		loadingElement.setAttribute('style' , 'position: absolute; left: 0; top: 0; width: 100%; height: 100%; z-index: -1; background-color: #dddddd; display: flex; justify-content:center; align-items: center;')
 		
 		const loadingI = document.createElement('i')
-		loadingI.setAttribute('class' , 'iconfont icon-loading captcha_canvas_loading')
-		loadingI.setAttribute('style' , 'color: #ffffff; font-size: 38px;')
+		loadingI.setAttribute('class' , 'captcha-slider-iconfont icon-loading captcha_canvas_loading')
+		loadingI.setAttribute('style' , 'color: #ffffff; font-size: 38px; animation: captcha_loading infinite 2s linear;')
 		loadingElement.appendChild(loadingI)
 		this.loadingElement = loadingElement
 		return loadingElement
@@ -135,7 +136,7 @@ class CaptchaCavans {
 		reloadWrapper.setAttribute('style' , 'position: absolute; right: 0; top: 0; padding: 10px; display: flex; justify-content:center; align-items: center; cursor: pointer;')
 		
 		const reloadI = document.createElement('i')
-		reloadI.setAttribute('class' , 'iconfont icon-shuaxin')
+		reloadI.setAttribute('class' , 'captcha-slider-iconfont icon-shuaxin')
 		reloadI.setAttribute('style' , 'color: #ffffff; font-size: 20px;')
 		reloadWrapper.appendChild(reloadI)
 		this.reloadWrapper = reloadWrapper
@@ -291,7 +292,6 @@ class CaptchaCavans {
    // 校验结果是否成功
 	valide () {
 		const v = Math.abs(this.slideX - this.targetSlidePosition[0])
-		console.log(v)
 		// 成功
 		if (v <= this.VAILIDE_VALUE) {
 			
@@ -321,6 +321,7 @@ class CaptchaCavans {
 		this.initValue()
 		// 移除元素
 		this.canvasWrapper && this.canvasWrapper.parentNode.removeChild(this.canvasWrapper)
+		this.style && this.style.parentNode.removeChild(this.style)
 	}
 
 	setNextImageIndex () {
@@ -330,6 +331,23 @@ class CaptchaCavans {
 	createKey () {
 		const getHex = () => Number.parseInt(Math.random() * 256).toString(16).padStart(2, '0')
 		return `${getHex()}${getHex()}${getHex()}-${Date.now()}`
+	}
+
+	createStyle () {
+		const style = document.createElement('style')
+		style.setAttribute('captcha-canvas', this.key)
+		style.innerHTML = `
+			@keyframes captcha_loading {
+				0% {
+					transform: rotate(0deg);
+				}
+				100% {
+					transform: rotate(360deg);
+				}
+			}
+		`
+		this.style = style
+		document.head.appendChild(style)
 	}
 }
 
