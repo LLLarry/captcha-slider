@@ -1,6 +1,6 @@
 {
   "name": "captcha-slider",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "这是一个滑块式验证码控件",
   "keywords": [
     "滑块式验证码",

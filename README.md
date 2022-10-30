@@ -45,7 +45,7 @@ import CaptchaSlider from 'captcha-slider'
 
 ```js
 new CaptchaSlider({
-    el: '.slider-captcha',
+    el: '.captcha-slider',
     onSuccess () {
         console.log('成功')
     },
